@@ -1,0 +1,23 @@
+{
+  "name": "FirebaseAuthenticationWithAngularfire",
+  "authors": [
+    "tauqeer <tauqeer.shakir@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angularfire": "^1.2.0",
+    "angular-material": "^1.0.7"
+  }
+}

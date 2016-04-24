@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular + firebase authentication</title>
+
+    <link rel="stylesheet" href="vendors/angular-material/angular-material.css">
+
+    <script src="vendors/angular/angular.js"></script>
+
+    <script src="vendors/angular-aria/angular-aria.js"></script>
+    <script src="vendors/angular-animate/angular-animate.js"></script>
+    <script src="vendors/angular-material/angular-material.js"></script>
+    <script src="vendors/angular-messages/angular-messages.js"></script>
+
+
+    <script src="vendors/firebase/firebase.js"></script>
+    <script src="vendors/angularfire/dist/angularfire.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/authFactory.js"></script>
+    <script src="js/loginController.js"></script>
+
+</head>
+<body ng-app="authentication" ng-controller="loginController as loginCtrl">
+
+<div layout="column">
+    <div layout="row">
+        <md-button ng-hide="loginCtrl.authData" ng-click="loginCtrl.login()" class="md-primary md-raised">Login with Github</md-button>
+        <md-button ng-show="loginCtrl.authData" ng-click="loginCtrl.logout()" class="md-primary md-raised">Logout</md-button>
+    </div>
+
+
+    <div layout="row" ng-show="loginCtrl.authData">
+        <img ng-src={{loginCtrl.authData.github.cachedUserProfile.avatar_url}}>
+        <p>{{loginCtrl.authData.github.displayName}}</p>
+    </div>
+
+    <div layout="column" ng-show="loginCtrl.authData">
+        <h4>All Repositories</h4>
+        <ul>
+            <li ng-repeat="repo in loginCtrl.repos">
+                {{repo.full_name}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+</html>
